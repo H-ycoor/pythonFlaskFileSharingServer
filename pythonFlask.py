@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_from_directory  # 修正Flask导入
+from flask import Flask, render_template, request, send_from_directory  
 import subprocess
 import threading
 import os
@@ -7,7 +7,7 @@ from flask_httpauth import HTTPBasicAuth
 auth = HTTPBasicAuth()
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'uploads'  # 移除多余的 .
+app.config['UPLOAD_FOLDER'] = 'uploads'  #
 
 
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)  # 修正括号和@
@@ -21,7 +21,7 @@ def verify_password(username, password):
 @auth.login_required
 def index():
     """主页路由，显示文件列表"""
-    files = os.listdir(app.config['UPLOAD_FOLDER'])  # 添加文件列表功能
+    files = os.listdir(app.config['UPLOAD_FOLDER'])  
     print("当前文件列表：", files)  # 终端打印实时文件列表
     return render_template('index.html', files=files)
 
