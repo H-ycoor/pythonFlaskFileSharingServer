@@ -1,7 +1,7 @@
 
 ## 📁 Simple File Sharing Server
 A lightweight file sharing service built with Python Flask backend and modern frontend. Perfect for quick file transfers within local networks or small teams.
-
+Note: The default account of the server is ***admin*** and the default password is ***password***
 
 
 ## ✨ Features
