@@ -24,6 +24,7 @@ Files are stored in ./uploads (auto-created)
 
 Supports all file types (PDF, images, archives, etc.)
 
+This program uses the ***ngrok*** service to map to the public network by default, please note
 
 ## 📜 License
 MIT License - See LICENSE for details.
