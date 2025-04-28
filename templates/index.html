@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易文件共享系统</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fas fa-cloud-upload-alt"></i> 文件共享服务器</h1>
+            <p class="subtitle">轻松上传和分享您的文件</p>
+        </header>
+        
+        <main class="main-content">
+            <div class="upload-card">
+                <form id="uploadForm" enctype="multipart/form-data" class="upload-area">
+                    <div class="file-input-wrapper">
+                        <input type="file" name="file" id="fileInput" required class="file-input">
+                        <label for="fileInput" class="file-label">
+                            <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                            <span class="upload-text">选择文件或拖放到此处</span>
+                            <span class="file-name" id="fileName">未选择文件</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="upload-button">
+                        <i class="fas fa-upload"></i> 上传文件
+                    </button>
+                </form>
+            </div>
+            
+            <div class="file-list-container">
+                <h2><i class="fas fa-file-alt"></i> 文件列表</h2>
+                <div class="file-list-header">
+                    <span>文件名</span>
+                    <span>操作</span>
+                </div>
+                <ul id="fileList" class="file-list">
+                    {% for file in files %}
+                    <li class="file-item">
+                        <span class="file-name"><i class="fas fa-file"></i> {{ file }}</span>
+                        <a href="/download/{{ file }}" class="download-button">
+                            <i class="fas fa-download"></i> 下载
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </main>
+        
+        <footer class="app-footer">
+            <p>© 2023 简易文件共享系统 | 使用Flask构建</p>
+        </footer>
+    </div>
+    
+    <script src="/static/script.js"></script>
+</body>
+</html>
